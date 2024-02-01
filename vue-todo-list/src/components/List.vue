@@ -18,9 +18,9 @@
    // Утилита для привязки геттеров к компоненту
    import { mapGetters } from 'vuex'
    // Компонент для обычной задачи
-   import Regular from './Regular'
+   import Regular from '@/components/ListRegular.vue'
    // Компонент для редактируемой задачи
-   import Edit from './Edit'
+   import Edit from '@/components/ListEdit.vue'
    
    export default {
     name: 'List',
