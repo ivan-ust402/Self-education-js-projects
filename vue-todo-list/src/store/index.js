@@ -8,7 +8,12 @@ const SERVER_URL = 'http://localhost:5000/todos'
 // Асинхронная операция - получение задач от сервера
 const getTodos = async () => {
  try {
-   const { data: todos } = await axios(SERVER_URL)
+  //  const { data: todos } = await axios(SERVER_URL)
+  const { data: todos } = await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(axios(SERVER_URL));
+    }, 1000)
+  });
    // возвращаем задачи и сообщение об успехе
    return {
      todos,
@@ -30,7 +35,12 @@ const getTodos = async () => {
 const postTodos = async (newTodos) => {
  try {
    // получаем данные - существующие задачи
-   const { data: existingTodos } = await axios(SERVER_URL)
+  //  const { data: existingTodos } = await axios(SERVER_URL)
+  const { data: existingTodos } = await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(axios(SERVER_URL));
+    }, 1000)
+  });
 
    // перебираем существующие задачи
    for (const todo of existingTodos) {
